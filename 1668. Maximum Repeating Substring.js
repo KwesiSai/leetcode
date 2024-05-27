@@ -4,21 +4,30 @@
  * @return {number}
  */
 var maxRepeating = function(sequence, word) {
-     let maxRepeats = 0;
-    let currentRepeats = 0;
+    //  let maxRepeats = 0;
+    // let currentRepeats = 0;
 
-    for (let i = 0; i <= sequence.length - word.length;) {
-        if (sequence.slice(i, i + word.length) === word) {
-            currentRepeats++;
-            i += word.length;
-        } else {
-            maxRepeats = Math.max(maxRepeats, currentRepeats);
-            currentRepeats = 0;
-            i++;
-        }
+    // for (let i = 0; i <= sequence.length - word.length;) {
+    //     if (sequence.slice(i, i + word.length) === word) {
+    //         currentRepeats++;
+    //         i += word.length;
+    //     } else {
+    //         maxRepeats = Math.max(maxRepeats, currentRepeats);
+    //         currentRepeats = 0;
+    //         i++;
+    //     }
+    // }
+
+    // maxRepeats = Math.max(maxRepeats, currentRepeats);
+
+    // return maxRepeats;
+    let maxRepeats = 0;
+    let repeatingWord = word;
+
+    while (sequence.includes(repeatingWord)) {
+        maxRepeats++;
+        repeatingWord += word;
     }
-
-    maxRepeats = Math.max(maxRepeats, currentRepeats);
 
     return maxRepeats;
 };
